@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Apprendre Vue </title>
+    <script src="https://unpkg.com/vue@next"></script>
+</HEAD>
+<BODY>
+<div id="root">
+    Y a rien pour le moment
+    <ul>
+    <li v-for="nom in professeurs">{{ nom }}</li>
+    </ul>
+
+    <input type="text" v-model="nouveauNom">
+    <button type="submit" @click="ajoutNom">ajouter un mon</button>
+<!--
+    ajout = le lien de la fonction
+-->
+
+</div>
+
+<script>
+    var app = {
+        data() {
+            return {
+                professeurs: ['robert', 'damico', 'robeau', 'vigny'],
+                nouveauNom: ''
+            }
+        },
+
+                methods:{
+                ajoutNom(){
+                    this.professeurs.push(this.nouveauNom)
+                }
+            },
+        mounted(){
+
+        }
+                
+    }
+
+    var instance = Vue.createApp(app).mount('#root')
+
+
+</script>
+
+
+</BODY>
+</HTML>
+

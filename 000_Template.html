@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Apprendre Vue </title>
+    <script src="https://unpkg.com/vue@next"></script>
+</HEAD>
+<BODY>
+<div id="root">
+    Y a rien pour le moment
+    <li v-for="nom in professeurs">{{nom}}</li>
+    <input type="text" id="nouveauNom">
+    <button type="submit" id = "ajout">ajouter un mon</button>
+    //ajout = le lien de la fonction
+
+</div>
+
+<script>
+    var app = {
+        data() {
+            return {
+                professeurs: ['robert', 'damico', 'robeau', 'vigny']
+            }
+            <button @click="ajoutNom" >
+                methods:{
+                ajoutNom(){
+                }}
+
+        },
+        mounted(){
+            document.querySelector('#ajout').addEventListener('click',() => {
+                let nvNom = document.querySelector('#nouveauNom');
+                instance.$data.professeurs.push(nvNom.value);
+                nvNom.value='';
+
+            })
+
+        }
+    }
+
+    var instance = Vue.createApp(app).mount('#root')
+
+
+</script>
+
+
+</BODY>
+</HTML>
+
